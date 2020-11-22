@@ -1,0 +1,250 @@
+\documentclass[12pt]{article}
+% REVISION NOTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2008-0814 Location, Date, Time
+% 2008-0814 fixed citations -- added bibliography.
+%
+%
+\usepackage{geometry}                
+\geometry{letterpaper}                   
+%\geometry{landscape}                
+\usepackage[parfill]{parskip}    
+\usepackage{daves,fancyhdr,natbib,graphicx,dcolumn,amsmath,lastpage,url}
+\usepackage{amsmath,amssymb,epstopdf,longtable}
+\usepackage[final]{pdfpages}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\pagestyle{fancy}
+\lhead{CE 5333 -- DIY Sensor System Integration for Civil Engineers}
+\rhead{SPRING 2020}
+\lfoot{CE 5333 -- Cleveland}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+\rfoot{DRAFT}
+\renewcommand\headrulewidth{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section*{\center{ { CE 5333 \\ Civil Engineering Sensor Systems Integration} } }
+\section*{Time and Location}
+Time is listed on attached schedule below. 
+This course is an instructor led special-topic course.  There is substantial hands-on component and students need to obtain about \$300 in supplies (listed below) to build the sensor projects.
+The projects are mostly water related but the methods are adaptable to other applications.
+The tabular schedule is a guideline; we will try to follow it closely, but be prepared to adjust to changes in pace dictated by our collective experience.
+\section*{Instructor}
+Theodore G. Cleveland, Ph.D., P.E., M. ASCE, F. EWRI\\
+Civil Engineering 203F (Texas Tech Office)\\
+Cell Phone: 001-832-722-4185  (The 001 is USA Country Code)\\
+Email: theodore.cleveland~\texttt{@}ttu.edu\\
+\textsl{Copyright $\copyright$ 2020 Theodore G. Cleveland, all rights reserved.} 
+\section*{Office Hours}
+Open door -- we can meet after each day for questions; also in mornings before/during breakfast\\
+\section*{Catalog Description and Prerequisites}
+CE 5333: Special Problems in Water Resources (3:3:0). Individual studies in water resources. May be repeated for credit.
+\textsl{co-requesite CE 3305} \\
+~\\
+
+\section*{Textbook}
+Cleveland T. G., DIY Sensors for Civil Engineers  \textsl{in progress}. \\ ~\\ The textbook is located at: \\
+\url{http://theodore-odroid.ttu.edu/pending-link}
+\section*{Purpose}
+A hands-on "maker" course to develop homebrew sensor and data aquisition tools. 
+Useful for beginning researchers to collect data at low cost for screening level data.
+The sensors and programs are adaptable to professional use.  
+Entire systems will be built and demonstrated -- the projects are mostly water related, but concepts are transferable to other Civil sub-disciplines.
+Intended for graduate students with minimal electronics skills, and minimal computer administration skills.
+Students should know how to solder and have had a circuits class somewhere.
+
+Topics include:
+\begin{itemize}
+\item System on chip computing (a little history). 
+\item         Pratical applications of sensing technology.
+\item         Building a sensing and recording system (prototype) using RPi
+ \item        Making deployment copies on a RPi-Zero 
+\item         Wireless communications using the RPi 3/4 as the controller and the RPi-zero as the slave
+ \item        Remote procedures - running the remote from a distance.
+ \item        Data processing for interpretation
+\item         Introduction to python
+\end{itemize}
+
+\section*{Objectives}
+Upon completion of this course, students should be able to:
+\begin{enumerate}
+\item Provision a single-board computer(Raspberry PI; Hardkernel XU4; Arduino, etc) to run a Linux instance and host a wireless network.
+\item Construct Analog-to-Digital Converter using MP3008 microprocessor.
+\item Attach sensors to system using GPIO pins.
+\item Write custom Python scripts to control senors, collect, and process data
+\item Use custom built system to control a device based on sensor input.
+\item Perform all control activities by remote procedure calls.
+\end{enumerate}
+
+\section*{Candidate Projects}
+Student teams will build and program a selection of the following example projects
+\begin{enumerate}
+\item Clean build RPi-3/4 with Ubuntu 19.X operating system (clean image ,not using noobs). Duplicate RPi-Zero
+\item A/D converter 8-channel, 10-bit to convert analog signal to digital. Uses MCP3008.
+\item Water-level detector, to detect 8 discrete water levels in a vessel (tank, channel, etc.) Uses the A/D converter.
+\item Ultrasonic time-of-flight detector.  Use as short range downlooking distance measure tool.
+\item Optical laser time-of-flight detector.   Similar application as ultrasonic
+\item Hall-detector mass flow meter (counting type).
+\item Tipping bucket raingage (counting type). Compare a DIY raingage to adapted flowmeter gage.
+\item Gas pressure sensor.  Install in a tensiometer.
+\item Normal Stress sensor (similar to strain gage)(possibly improved water level trick)
+\item Soil moisture sensor array.  Similar programming as water level sensor.
+\item Pump controller circuit to start a small pump based on sensor data. 
+\item IR remote temperature detection.
+\item Thermal plume tracing using FLIR and image processing. (Advanced project only 2 sensors in inventory)
+\end{enumerate}
+
+\newpage
+\section*{Course Schedule}
+\begin{longtable}{p{0.1in}p{0.8in}p{4.6in}p{1.0in}}
+%%%%%%%%
+\caption[]{CE 3305 Course Schedule -- Summer 2016
+\newline 
+\newline
+\footnotesize
+[ID: Lecture code; each $\approx~$ 1.5 hours in duration;  \\
+ DATE \& TIME: Date and time of scheduled lecture; \\
+ TOPIC: Lecture content synopsis; \\
+ READING: Relevant book pages. \\
+} \label{tab:lecture-schedule} \\
+\hline
+ID & DATE  & TOPIC &  READING \\
+\hline
+\endfirsthead
+\caption[]{CE3305 Schedule and Lecture Abstracts  --- Continued} \\
+\hline
+ID & DATE \& TIME & TOPIC & READING \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{l}{\emph{Continued on next page}}
+\endfoot
+\hline
+\endlastfoot
+%%%%%%
+%ID & DATE & TOPIC & REMARKS & READING \\
+\hline
+\hline
+%%%%%%%%%%%%%%%%%%%WEEK001%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hline
+~1 & date & Introduction;  & pp. ~~1 - 25 \\
+~2 & date  & Linux images: using Etcher to make an image & pp. ~26 - 43\\
+~3 &  date  & Install OS onto RPi; configure network &pp. ~44 - 78 \\
+~4 &  date  & Acquire GPIO software (from class website) &pp. ~79 - 86 \\
+\hline~5 &  date & Simultaneous Linear Equations & pp. ~87 - 112\\
+~6 &  date  & Project 1: AD converter using MCP3008 &  pp. 113 - 119\\
+~7 &  date  & Project 1: Test AD converter as a voltmeter & pp. 120 - 125 \\
+~8 & date  & Project 2: Water level sensor using resistive sensing & pp. 126 - 133 \\
+~9 &  date  & Project 2: Polling the MCP3008 to detect 8-levels of water  & pp. 134 - 144 \\
+\hline
+10 &  date & Project 3: Hall detector flowmeter (digital counting) & pp. 145 - 153\\
+11 &  date &  Project 3: Testing the detector  & pp. XX-XX \\
+12 &  date  & Project 4: Gas pressure sensor & pp. XX-XX \\
+13 &  date  & Project 4: Testing the sensor & pp. XX-XX\\
+\hline
+14 &  date  & Project 5: IR remote temperature sensing & pp. XX-XX \\
+15 &  date  & Project 6: Pump controller circuit & pp. XX-XX\\
+16 &  date  & Final Sensor challenge (Choose remaining projects) & pp. XX-XX \\
+17 &  date &  Project 7:  & pp. XX-XX\\
+\hline
+18 &  date  &  Project 7  & pp. XX-XX\\
+19 & 1 date  &  Project 8  & pp. XX-XX \\
+\hline
+20 &  date  &  Project 8: & pp. XX-XX  \\
+21 & date  & Project 9:  & pp. XX-XX \\
+22 &  date &  Project 9: & pp. XX-XX \\
+23 & date  & Final Demonstrations & pp. XX-XX\\
+24 &  date & Alibi Demonstrations& pp. XX-XX\\
+\hline
+\hline
+%\hline
+%\end{tabular}
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{longtable}
+\normalsize
+
+
+
+%\includepdf[pages=1]{./Summer_School_2015_V07.pdf}
+\section*{Assessment Instruments}
+\subsection*{Sensor Projects}
+Project completion -- all students need functioning projects.  OK to work in teams.
+Project reports are comprised of:
+\begin{enumerate}
+\item Problem statement and sketch of the system
+\item Identify and list the  environment and values to be sensed
+\item  Identify relevant governing equations and state assumptions
+\item Identify sensor components needed.
+\item Identify and write control programs to access sensors and acquire data.
+\item Demonstrate working project (photograph evidence adequate)
+\item Discuss the results
+\end{enumerate}
+\subsection*{System Documentation}
+All projects need documentation of sufficient detail so others can implement.  
+The documentation will be in a portfolio (collection of reports for each project) using the above reports.
+
+%Five (5) quizzes are scheduled.\footnote{The quizzes replace the usual mid-term exam.}   These quizzes will be comprised of several problems, possibly verbatim from the homeworks, and conceptual questions derived from lecture and homework materials. 
+%\subsection*{Trip Reports}
+%Two field trips are scheduled.   
+%TTU Students are to write a trip report;  the report is to be in memorandum format no longer than two pages of text.  
+%Photographs are encouraged.   
+%The reports will be evaluated for content, insight, spelling, and grammar.   
+%The reports can be sent by e-mail.\footnote{Jade students are exempt from the trip report requirement.  The field trips will involve the USA students only because the group is too large for everyone to attend.   I will not use trip reports as part of the grade -- except as a completion requirement for the USA students.}
+
+\subsection*{Deployment}
+End of semester a deployment scenario that uses one or more projects will be assigned to student teams.  
+Students must sucessfully demonstrate their sensor systems to the class.\footnote{If they fail in demonstration, teams will have one week to debug and retry.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Grading Policy}
+Final grades are determined based on performance during the course.
+Letter grades will be assigned using University standards.  
+The \textbf{approximate} weighting of graded material in determining the final grade is as follows\footnote{Graded materials with fewer than 100 points will have raw scores normalized to 100 points for calculating the final grade.}:
+
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{l l}
+Item & Percent of Grade \\
+\hline
+\hline
+%Trip Reports  & footnote above \\
+Projects  Completion   & ~~~~70\% \\
+Portfolio Completion      &  ~~~~10\% \\
+Deployment Demonstration  & ~~~~20\% \\
+\hline
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{ABET Program Outcomes}
+A subset of the ABET Program Outcomes are addressed in CE 3305, these outcomes are listed below:\footnote{Item 3[b] below is only partially fulfilled -- in this course students will analyze and interpret data, design of experiments is beyond the scope of the class.}
+
+\begin{tabular}{p{0.5in}p{5.5in}}
+\texttt{3[a].}  & Ability to apply knowledge of mathematics, science, and engineering.\\
+\texttt{3[b].}  & Ability to design and conduct experiments, as well as to analyze and interpret data.\\
+\texttt{3[e].}  & Ability to identify, formulate, and solve engineering problems.\\
+\texttt{3[i].}   & Recognition of need for life-long learning.\\
+\texttt{3[k].}  & Ability to use the techniques, skills, and modern engineering tools necessary for engineering practice.\\
+\texttt{8[d].}  & Proficiency in water resources engineering.\\
+\end{tabular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Academic Misconduct}
+Refer to the Texas Tech University Catalog and operating policies (OP 34.12) regarding
+academic integrity, cheating, and plagiarism. Academic dishonesty will not be tolerated.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Disability Policy}
+\textsl{ ``Any student who, because of a disability, may require special arrangements in order to meet
+the course requirements should contact the instructor as soon as possible to make any necessary arrangements.
+Students should present appropriate verification from Student Disability Services during the instructors office hours. Please note instructors are not allowed to provide classroom accommodations
+to a student until appropriate verification from Student Disability Services has been provided.
+For additional information, you may contact the Student Disability Services office at 335 West Hall or
+806- 742-2405."}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\bibliographystyle{chicago}	         % (uses file "chicago.bst")
+\bibliography{ce3372_spring2010}		% expects file "0-6070_LitRev.bib"
+\end{document}
+
+

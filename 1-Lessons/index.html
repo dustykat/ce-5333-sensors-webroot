@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "styles.css" >
+    </head>
+    <body>
+        
+        <div class="topnav">
+            <a class="active" href="../">Course Home Page</a>
+            <a href="../0-Syllabus/syllabus.ce3372-2019-1.pdf">Syllabus</a>
+            <a href="../1-Lessons/">Lessons</a>
+            <a href="../2-Exercises/">Exercises</a>
+            <a href="../3-Readings/">Readings</a>
+	    <a href="http://theodore-odroid.ttu.edu/documents/toolbox/">Toolkit</a>
+            <a href="http://www.rtfmps.com/moodle/">Moodle (LMS) Site</a>
+
+        </div>
+        
+	<div style="padding-left:16px">
+            <h2>CE 5333 Civil Engineering Sensor Systems Integration </h2>
+       
+
+        </div>
+        
+        
+
+        <button class="accordion">Description</button>
+        <div class="panel">
+<p>
+A hands-on "maker" course to develop homebrew sensor and data aquisition tools. 
+Useful for beginning researchers to collect data at low cost for screening level data. 
+The sensors and programs are adaptable to professional use.  
+Entire systems will be built and demonstrated -- the projects are mostly water related, but concepts are transferable to other Civil sub-disciplines.
+Intended for graduate students with minimal electronics skills, and minimal computer administration skills. 
+Students should know how to solder and have had a circuits class somewhere. 
+</p>
+<p> 
+Upon successful completion of this course, the participant will have:<br>
+1. Provisioned a single-board computer(Raspberry PI; Hardkernel XU4; Arduino, etc) to run a Linux instance and host a wireless network.<br>
+2. Construct Analog-to-Digital Converter using MP3008 microprocessor.<br>
+3. Select and attach sensors to the computer system using the GPIO pins. Sensor type based on environmental variable of interest and data type (counting, voltage level, current level)<br>
+4. Write custom Python scripts to control senors, collect, and process data.<br>
+5. Use custom built system to control a device based on sensor input (by activating a relay on demand).<br>
+6. Deploy  onto a second SBC and control by wireless remote procedure calls.<br>
+</p>
+        </div>
+        
+        <button class="accordion"> Configure the Single Board Computer (Lessons 1-8) </button>
+        <div class="panel">
+<p><a href="./Lesson01/"> Lesson-1 </a> Introduction </p>
+<p><a href="./Lesson02/"> Lesson-2 </a> RPi OS Images </p>
+<p><a href="./Lesson03/"> Lesson-3 </a> Updating the install </p>
+<p><a href="./Lesson04/"> Lesson-4 </a> RPi as WAP configure </p>
+<p><a href="./Lesson05/"> Lesson-5 </a> vncserver configure </p>
+<p><a href="./Lesson06/"> Lesson-6 </a> Reboot and run headless </p>
+<p><a href="./Lesson07/"> Lesson-7 </a> Python </p>
+<p><a href="./Lesson08/"> Lesson-8 </a> Python </p>
+
+        </div>
+<button class="accordion"> Build and test an Analog to Digital Converter (Lessons 9-12) </button>
+        <div class="panel">
+<p><a href="./Lesson09/"> Lesson-9 </a> Using the MCP3008 </p>
+<p><a href="./Lesson10/"> Lesson-10 </a> Python scripts to query the MCP3008 </p>
+<p><a href="./Lesson11/"> Lesson-11 </a> Use AD as a voltmeter </p>
+<p><a href="./Lesson12/"> Lesson-12 </a> Polling the chip- use 8 channels </p>
+</div>
+        <button class="accordion"> Resistive Sensors (different output voltages) (Lessons 13-19) </button>
+        <div class="panel">
+<p><a href="./Lesson13/"> Lesson-13 </a> Water Level Detector </p>
+<p><a href="./Lesson14/"> Lesson-14 </a> Soil Moisture Detector  </p>
+<p><a href="./Lesson15/"> Lesson-15 </a> Normal Stress Detector </p>
+<p><a href="./Lesson16/"> Lesson-16 </a> Gas pressure detector </p>
+<p><a href="./Lesson17/"> Lesson-17 </a> IR temperature detector </p>
+
+</div>
+    	<button class="accordion">Counter Sensors (Lessons 18-20) </button>
+        <div class="panel">
+<p><a href="./Lesson18/"> Lesson-18 </a> Hall-Effect Counter </p>
+<p><a href="./Lesson19/"> Lesson-19 </a> Pipeline mass flow sensor </p>
+<p><a href="./Lesson20/"> Lesson-20 </a> Tipping bucket raingage </p>
+
+
+        </div>
+ <button class="accordion"> Other Sensors ( (Lessons 21-24) </button>
+        <div class="panel">
+<p><a href="./Lesson21/"> Lesson-21 </a> Ultrasonic time-of-flight </p>
+<p><a href="./Lesson22/"> Lesson-22 </a> Optical time-of-flight </p>
+<p><a href="./Lesson23/"> Lesson-23 </a> Sensor directed control (Start/Stop a pump based on water level) </p>
+<p><a href="./Lesson24/"> Lesson-24 </a> Thermal plume and image interpretation </p>
+</div>
+<!-- JavaScripts for this page -->
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        }
+    }
+</script>
+
+    </body>
+</html>
