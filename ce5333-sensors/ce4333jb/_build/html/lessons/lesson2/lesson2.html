@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infrared Motion Detector &#8212; My sample book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Build and Test Analog-to-Digital Converter" href="../lesson9/lesson9.html" />
+    <link rel="prev" title="Configuring the Single Board Computer(s)" href="../lesson1/lesson1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson0/lesson0.html">
+   Sensor system integration for Civil Engineers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson1/lesson1.html">
+   Configuring the Single Board Computer(s)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Infrared Motion Detector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson9/lesson9.html">
+   Build and Test Analog-to-Digital Converter
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/lesson2/lesson2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson2/lesson2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson2/lesson2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operation-principle">
+   Operation Principle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hardware">
+   Hardware
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gpio-api-libraries">
+   GPIO API Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pin-sensors">
+   3-Pin Sensors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-code">
+   Sample Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-system">
+   Running the System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refinement">
+   Refinement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="infrared-motion-detector">
+<h1>Infrared Motion Detector<a class="headerlink" href="#infrared-motion-detector" title="Permalink to this headline">¶</a></h1>
+<p>A simple sensor system to test our microcomputer is an infrared motion detector using a passive infrared (PIR) detector.</p>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>Our objective is really to simply test our build, a PIR sensor is quite simple to construct, so its a good starting point.  The sensor and code can be adapted to practical uses, so although simplistic here - a little refinement can produce a useful tool for some engineering measurements.</p>
+</div>
+<div class="section" id="operation-principle">
+<h2>Operation Principle<a class="headerlink" href="#operation-principle" title="Permalink to this headline">¶</a></h2>
+<p>Passive infrared (PIR) sensors use a pair of pyroelectric sensors to detect heat energy in the surrounding environment. These two sensors sit beside each other, and when the signal differential between the two sensors changes (if a person enters the room, for example), the sensor will engage. That may mean it triggers an alarm, notifies authorities, or maybe turns on a floodlight. IR radiation focuses on each of the two pyroelectric sensors using a series of lenses constructed as the sensor’s housing. These lenses widen the device’s sensing area.</p>
+<p>While the lens setup and sensor electronics are sophisticated technology, these units are easy to use in a practical application. You only need power and ground for the sensor to produce a discreet output that’s strong enough for a microcontroller to use. Typical adjustments include adding potentiometers for sensitivity and tweaking how long a PIR stays engaged once it’s triggered. You can also toggle the sensor between:</p>
+<ul class="simple">
+<li><p>Staying on for a set amount of time after detecting movement.</p></li>
+<li><p>Pulsing on and off in a “non-retriggering” mode.</p></li>
+</ul>
+<p>You’ll commonly see PIR sensors in security alarms and automatic lighting setups. These applications don’t require that the sensor detect an object’s specific location, just that objects or people in a particular area are moving around.</p>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>For this lesson we will use the KS0052 PIR module <a class="reference external" href="https://wiki.keyestudio.com/Ks0052_keyestudio_PIR_Motion_Sensor">https://wiki.keyestudio.com/Ks0052_keyestudio_PIR_Motion_Sensor</a>.  It costs about $13 USD for a box of three modules. You can buy it at Amazon and a few other sources <a class="reference external" href="https://www.amazon.com/KEYESTUDIO-Motion-Sensor-Arduino-Pyroelectric/dp/B07FGDW24X/ref=dp_prsubs_1?pd_rd_i=B07FGDW24X&amp;psc=1">https://www.amazon.com/KEYESTUDIO-Motion-Sensor-Arduino-Pyroelectric/dp/B07FGDW24X/ref=dp_prsubs_1?pd_rd_i=B07FGDW24X&amp;psc=1</a></p>
+</div>
+<div class="section" id="gpio-api-libraries">
+<h2>GPIO API Libraries<a class="headerlink" href="#gpio-api-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Several libraries (external modules in python parlance) are available to communicate with the hardware module.  In this lesson we will use <code class="docutils literal notranslate"><span class="pre">gpiozero</span></code><a class="reference external" href="https://gpiozero.readthedocs.io/en/stable/index.html">https://gpiozero.readthedocs.io/en/stable/index.html</a>.</p>
+<p>This library produces really simple to read code (naturally there is a lot going under the hood), and appears to install with Raspberry Pi OS.  A list of available “recipies” (functions that access the GPIO pins) is located at <a class="reference external" href="https://gpiozero.readthedocs.io/en/stable/recipes.html">https://gpiozero.readthedocs.io/en/stable/recipes.html#</a></p>
+<p>The “recipes” either operate on pins using the naming convention depicted in the figure</p>
+<p><img alt="" src="../../_images/PinDiagram.png" /></p>
+<p>or the physical pin using the <code class="docutils literal notranslate"><span class="pre">BOARD##</span></code> directive.</p>
+<p>Depending on the library used we will be specifying logical or physcial pins throughout this course; because the audience is Civil Engineering students, our goal is to get stuff to work - we don’t particularly care about the details of the little black boxes that are the sensor modules and these various libraries.</p>
+</div>
+<div class="section" id="pin-sensors">
+<h2>3-Pin Sensors<a class="headerlink" href="#pin-sensors" title="Permalink to this headline">¶</a></h2>
+<p>The KS0052 is a three-pin sensor module - these are pretty common we will supply power via a voltage input (+5VDC) and ground, and read the sensor output on the third pin which is labeled the signal pin.</p>
+<p>The figure below is a wiring diagram from <a class="reference external" href="https://projects.raspberrypi.org/en/projects/physical-computing/11">https://projects.raspberrypi.org/en/projects/physical-computing/11</a></p>
+<p><img alt="" src="../../_images/WiringDiagram.png" /></p>
+<p>I dont pay a lot of attention to wire color in these diagrams, but we have to get the pin terminals correct for stuff to work.  Here are photographs of our setup</p>
+<p><img alt="" src="../../_images/PIR-system.png" /></p>
+<p>A close-up of the sensor module</p>
+<p><img alt="" src="../../_images/PIR-module.png" /></p>
+<p>and a close-up of the pin header extension board.</p>
+<p><img alt="" src="../../_images/PIR-GPIO.png" /></p>
+</div>
+<div class="section" id="sample-code">
+<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
+<p>Our sample code is listed below. The <code class="docutils literal notranslate"><span class="pre">MotionSensor(logicalPin)</span></code> recipe is assigned to an object named pir.  A polling loop is started (notice it runs indefinitely - a keyboard interrupt stops it) when the sensor detects a thermal change it sends a message to the terminal and prints a message.  When nothing is going on, it just keeps polling.  Its a dumb program as written but will let us test our computer system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># PIR Detector Example Program</span>
+<span class="c1"># Simple first GPIO program</span>
+<span class="c1"># Code is copied/adapted from https://projects.raspberrypi.org/en/projects/physical-computing/11</span>
+
+<span class="c1"># May have to use pip to get the gpio api</span>
+
+<span class="kn">from</span> <span class="nn">gpiozero</span> <span class="kn">import</span> <span class="n">MotionSensor</span>
+
+<span class="n">pir</span> <span class="o">=</span> <span class="n">MotionSensor</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">pir</span><span class="o">.</span><span class="n">wait_for_motion</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You moved&quot;</span><span class="p">)</span>
+        <span class="n">pir</span><span class="o">.</span><span class="n">wait_for_no_motion</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-system">
+<h2>Running the System<a class="headerlink" href="#running-the-system" title="Permalink to this headline">¶</a></h2>
+<p>The code above is saved to a file named <code class="docutils literal notranslate"><span class="pre">PIRdetector.py</span></code> which was written using the IDLE editor, although nano would have been just fine.  To run the script we simply execute
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">python3</span> <span class="pre">PIRdetector.py</span></code></p>
+<p>A screen capture after starting is below</p>
+<p><img alt="" src="../../_images/StartProgram.png" /></p>
+<p>Then using a very bright torch as a heat source we cause a <span class="math notranslate nohighlight">\(\Delta T\)</span> in the sensor a few times.</p>
+<p><img alt="" src="../../_images/SeveralMoves.png" /></p>
+<p>Finally we send a termination signal.</p>
+<p><img alt="" src="../../_images/TerminateProgram.png" /></p>
+</div>
+<div class="section" id="refinement">
+<h2>Refinement<a class="headerlink" href="#refinement" title="Permalink to this headline">¶</a></h2>
+<p>A meaningful refinement would be to report the time when motion is detected, as shown below</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># PIR Detector Example Program</span>
+<span class="c1"># Simple first GPIO program</span>
+<span class="c1"># Code is copied/adapted from https://projects.raspberrypi.org/en/projects/physical-computing/11</span>
+
+<span class="c1"># May have to use pip to get the gpio api</span>
+
+<span class="kn">from</span> <span class="nn">gpiozero</span> <span class="kn">import</span> <span class="n">MotionSensor</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="n">pir</span> <span class="o">=</span> <span class="n">MotionSensor</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">pir</span><span class="o">.</span><span class="n">wait_for_motion</span><span class="p">()</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%c</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#time detect motion</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Motion Detect @ &quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+        <span class="n">pir</span><span class="o">.</span><span class="n">wait_for_no_motion</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here is the program run for a bit then interrupted</p>
+<p><img alt="" src="../../_images/TimedMoves.png" /></p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Refine the program to detect motion over a 120 second interval then self-terminate.  Research the <code class="docutils literal notranslate"><span class="pre">time</span></code> module to figure out how to run the program for 120 seconds elapsed time.</p></li>
+<li><p>Read the MotionSensor recipe at<a class="reference external" href="https://gpiozero.readthedocs.io/en/stable/recipes.html">https://gpiozero.readthedocs.io/en/stable/recipes.html#</a>.  Using the documentation as a guide, build a system that not only reports time of detection but activates an LED signal when motion is detected.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exercises are simple, but important - if you are new to controller programming you may find Exercise 1 difficult, but just apply the problem solving protocol in ENGR 1330 to work out a wrapper then embed the detector recipe.  Its fine to use Google and copy/cite other people’s code just include at least a URL to the code source.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/lesson2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../lesson1/lesson1.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Configuring the Single Board Computer(s)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../lesson9/lesson9.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Build and Test Analog-to-Digital Converter</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
