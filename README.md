@@ -1,4 +1,4 @@
-# ce5333sensors-webroot
+# ce-5333-sensors-webroot
 CE 5333 Civil Engineering Sensor Systems Integration - install in webroot
 
 This repository contains course materials for CE 5333 sensors course.  
