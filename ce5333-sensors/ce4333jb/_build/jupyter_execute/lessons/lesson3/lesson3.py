@@ -182,23 +182,16 @@
 # ---
 # Circuit diagram from Ujjainwala (2020).
 # ```
-# If the connections and the installation is done properly, we can check if we get the sensor address value on the I2C bus using the command i2cdetect -y 1.
 # 
-# If everything works as expected, we can see the below output on our terminal.
+# #### Check I2C addressing
 # 
-# 0x5A represents the address of the sensor as mentioned by the datasheet. The datasheet snippet showing the same is given below.
+# ### Now Try out the sensor
 # 
-# Now, we will run make a new file name mlxread.py and write a sample program to check the data from the sensor. The code for the same is given below.
 # 
-# Once the file is created, we will run it with python extension python mlxread.py. The output I received is shown below. I ran the program multiple times to check if the values change as I move my hand over it.
+# Now, we make a new file name mlxread.py and write a sample program to check the data from the sensor.
 # 
-# Woah, we have successfully interfaced MLX90614 with our Raspberry Pi as you can confirm from the above image.
-
-# ## Python scripts to 
-
-# ## 
-
 # ```
+# # python2.7 code
 # from smbus2 import SMBus
 # from mlx90614 import MLX90614
 # bus = SMBus(1)
@@ -207,8 +200,39 @@
 # print "Object Temperature :", sensor.get_object_1()
 # bus.close()
 # ```
+# 
+# ```
+# # python3.X code
+# from smbus2 import SMBus
+# from mlx90614 import MLX90614
+# bus = SMBus(1)
+# sensor = MLX90614(bus, address=0x5A)
+# print("Ambient Temperature :", sensor.get_ambient())
+# print("Object Temperature :", sensor.get_object_1())
+# bus.close()
+# ```
+# 
+# Once the file is created, we will run it with python extension python mlxread.py. 
+# The output is shown below. I used a torch (flashlight) as the heat source.
+# 
+# ```{figure} example-run.png
+# ---
+# width: 400px
+# name: example-run
+# ---
+# Circuit diagram from Ujjainwala (2020).
+# ```
+# 
+# 
+# 
 
-# https://files.pythonhosted.org/packages/67/8a/443af31ff99cca1e30304dba28a60d3f07d247c8d410822411054e170c9c/PyMLX90614-0.0.3.tar.gz
+# ## Exercises
+# 
+# 1. Using the `time` module, capture the time when the reading is taken.
+# 2. Put the script into a function, then embed the function into another script to take readings every 15 seconds for 10 minutes.
+# 3. (Advanced) Write a BASH script to run the sensor for 24 hours using the `cron` table and your modified script.  Have the script append to a file, so that if the system fails (power interrupt) you don't lose all the data.
+
+# ## 
 
 # ## 
 

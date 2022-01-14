@@ -268,13 +268,23 @@
        Step 3.0 Updating the OS to interact with the library
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-i2c-addressing">
+       Check I2C addressing
+      </a>
+     </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#now-try-out-the-sensor">
+     Now Try out the sensor
+    </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-scripts-to">
-   Python scripts to
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -419,21 +429,16 @@ The first unit is the sensing unit which has an infrared detector which is follo
 <a class="reference internal image-reference" href="../../_images/pin-out.png"><img alt="../../_images/pin-out.png" src="../../_images/pin-out.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Circuit diagram from Ujjainwala (2020).</span><a class="headerlink" href="#pin-out" title="Permalink to this image">¶</a></p>
 </div>
-<p>If the connections and the installation is done properly, we can check if we get the sensor address value on the I2C bus using the command i2cdetect -y 1.</p>
-<p>If everything works as expected, we can see the below output on our terminal.</p>
-<p>0x5A represents the address of the sensor as mentioned by the datasheet. The datasheet snippet showing the same is given below.</p>
-<p>Now, we will run make a new file name <a class="reference external" href="http://mlxread.py">mlxread.py</a> and write a sample program to check the data from the sensor. The code for the same is given below.</p>
-<p>Once the file is created, we will run it with python extension python <a class="reference external" href="http://mlxread.py">mlxread.py</a>. The output I received is shown below. I ran the program multiple times to check if the values change as I move my hand over it.</p>
-<p>Woah, we have successfully interfaced MLX90614 with our Raspberry Pi as you can confirm from the above image.</p>
+</div>
+<div class="section" id="check-i2c-addressing">
+<h4>Check I2C addressing<a class="headerlink" href="#check-i2c-addressing" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
-</div>
-<div class="section" id="python-scripts-to">
-<h2>Python scripts to<a class="headerlink" href="#python-scripts-to" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smbus2</span> <span class="kn">import</span> <span class="n">SMBus</span>
+<div class="section" id="now-try-out-the-sensor">
+<h3>Now Try out the sensor<a class="headerlink" href="#now-try-out-the-sensor" title="Permalink to this headline">¶</a></h3>
+<p>Now, we make a new file name <a class="reference external" href="http://mlxread.py">mlxread.py</a> and write a sample program to check the data from the sensor.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># python2.7 code</span>
+<span class="kn">from</span> <span class="nn">smbus2</span> <span class="kn">import</span> <span class="n">SMBus</span>
 <span class="kn">from</span> <span class="nn">mlx90614</span> <span class="kn">import</span> <span class="n">MLX90614</span>
 <span class="n">bus</span> <span class="o">=</span> <span class="n">SMBus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sensor</span> <span class="o">=</span> <span class="n">MLX90614</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x5A</span><span class="p">)</span>
@@ -442,7 +447,34 @@ The first unit is the sensing unit which has an infrared detector which is follo
 <span class="n">bus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://files.pythonhosted.org/packages/67/8a/443af31ff99cca1e30304dba28a60d3f07d247c8d410822411054e170c9c/PyMLX90614-0.0.3.tar.gz">https://files.pythonhosted.org/packages/67/8a/443af31ff99cca1e30304dba28a60d3f07d247c8d410822411054e170c9c/PyMLX90614-0.0.3.tar.gz</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># python3.X code</span>
+<span class="kn">from</span> <span class="nn">smbus2</span> <span class="kn">import</span> <span class="n">SMBus</span>
+<span class="kn">from</span> <span class="nn">mlx90614</span> <span class="kn">import</span> <span class="n">MLX90614</span>
+<span class="n">bus</span> <span class="o">=</span> <span class="n">SMBus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">MLX90614</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x5A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ambient Temperature :&quot;</span><span class="p">,</span> <span class="n">sensor</span><span class="o">.</span><span class="n">get_ambient</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object Temperature :&quot;</span><span class="p">,</span> <span class="n">sensor</span><span class="o">.</span><span class="n">get_object_1</span><span class="p">())</span>
+<span class="n">bus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Once the file is created, we will run it with python extension python <a class="reference external" href="http://mlxread.py">mlxread.py</a>.
+The output is shown below. I used a torch (flashlight) as the heat source.</p>
+<div class="figure align-default" id="example-run">
+<a class="reference internal image-reference" href="../../_images/example-run.png"><img alt="../../_images/example-run.png" src="../../_images/example-run.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Circuit diagram from Ujjainwala (2020).</span><a class="headerlink" href="#example-run" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">time</span></code> module, capture the time when the reading is taken.</p></li>
+<li><p>Put the script into a function, then embed the function into another script to take readings every 15 seconds for 10 minutes.</p></li>
+<li><p>(Advanced) Write a BASH script to run the sensor for 24 hours using the <code class="docutils literal notranslate"><span class="pre">cron</span></code> table and your modified script.  Have the script append to a file, so that if the system fails (power interrupt) you don’t lose all the data.</p></li>
+</ol>
+</div>
+<div class="section" id="id1">
+<h2><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="id2">
 <h2><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
