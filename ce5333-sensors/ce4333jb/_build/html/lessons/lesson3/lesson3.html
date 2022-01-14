@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Non-Contact Temperature Sensor &#8212; My sample book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Build and Test Analog-to-Digital Converter" href="../lesson9/lesson9.html" />
+    <link rel="prev" title="Infrared Motion Detector" href="../lesson2/lesson2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson0/lesson0.html">
+   Sensor system integration for Civil Engineers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson1/lesson1.html">
+   Configuring the Single Board Computer(s)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson2/lesson2.html">
+   Infrared Motion Detector
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Non-Contact Temperature Sensor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson9/lesson9.html">
+   Build and Test Analog-to-Digital Converter
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/lesson3/lesson3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson3/lesson3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson3/lesson3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operation-principle">
+   Operation Principle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hardware">
+   Hardware
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#i2c-interface-and-libraries">
+   I2C interface and libraries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interfacing-mlx90614-with-raspberry-pi">
+     Interfacing MLX90614 with Raspberry Pi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step1-enabling-the-i2c-from-raspberry-pi-setting">
+       Step1: Enabling the I2C from Raspberry Pi setting.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step2-0-download-the-package-library-of-mlx90614">
+       Step2.0: Download the package/library of MLX90614
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step2-1-extract-the-library">
+       Step2.1: Extract the library
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-0-updating-the-os-to-interact-with-the-library">
+       Step 3.0 Updating the OS to interact with the library
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-scripts-to">
+   Python scripts to
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="non-contact-temperature-sensor">
+<h1>Non-Contact Temperature Sensor<a class="headerlink" href="#non-contact-temperature-sensor" title="Permalink to this headline">¶</a></h1>
+<p>A simple sensor system to measure temperature without direct contact.</p>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>Our objective is to use an IR sensor to measure temperature of objects without contact.  The sensor and code can be adapted to practical uses, so although simplistic here - a little refinement can produce a useful tool for some engineering measurements. The motivating problem is measurement of thermal behavior of concrete mixtures as they cure - imbedding a thermal probe would be a legitimate approach, but here we want to explore remote measurement.  Unlike our PIR project, we now care about accuracy.</p>
+</div>
+<div class="section" id="operation-principle">
+<h2>Operation Principle<a class="headerlink" href="#operation-principle" title="Permalink to this headline">¶</a></h2>
+<p>The MLX90614 sensor is manufactured by Melexis Microelectronics Integrated systems, it works on the principle of InfraRed thermopile sensor for temperature measurement.
+These sensors consist of two units embedded internally to give the temperature output.
+The first unit is the sensing unit which has an infrared detector which is followed by the second unit which performs the computation of the data with Digital signal processing (DSP).</p>
+<p>This sensor works based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Stefan%E2%80%93Boltzmann_law">Stefan-Boltzmann law</a> that states the power radiated by a black body is proportional to its temperature. In simple terms, any object emits IR energy and the intensity of that will be directly proportional to the temperature of that object. MLX90614 sensor converts the detected value into 17-bit value using an on-board ADC that can be accessed using the I2C communication protocol. These sensors measure the ambient temperature as well as object temperature with the resolution calibration of 0.02°C. To learn more about the MLX90614 sensor, refer to the <a class="reference external" href="https://www.sparkfun.com/datasheets/Sensors/Temperature/MLX90614_rev001.pdf">MLX90614 Datasheet</a>.</p>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>For this lesson we will use the MLX90614 IR Temperature Sensor. This sensor different from the PIR sensor in that it can give us object temperature and ambient temperature. You can buy it at Amazon and a few other sources for about $13 <a class="reference external" href="https://www.amazon.com/HiLetgo-MLX90614ESF-Non-contact-Infrared-Temperature/dp/B071VF2RWM/ref=sr_1_1_sspa?crid=3K12PBA02OOKG&amp;keywords=MLX90614&amp;qid=1642181841&amp;sprefix=mlx90614%2Caps%2C483&amp;sr=8-1-spons&amp;psc=1&amp;spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFFSVNCVDlCOFQ0MkQmZW5jcnlwdGVkSWQ9QTA2MDUzMzMzMEEyWlVOU1hYODdRJmVuY3J5cHRlZEFkSWQ9QTAzMzE4NzYzTFVMWkdOOEYzQU5SJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==">https://www.amazon.com/HiLetgo-MLX90614ESF-Non-contact-Infrared-Temperature</a></p>
+</div>
+<div class="section" id="i2c-interface-and-libraries">
+<h2>I2C interface and libraries<a class="headerlink" href="#i2c-interface-and-libraries" title="Permalink to this headline">¶</a></h2>
+<p>This sensor uses the I2C interface and will use a different set of libraries than the GPIO libraries used in the PIR sensor.  The I2C acronym stands for inter-integrated circuit and is a method designed to allow one chip to talk to another synchronously.</p>
+<blockquote>
+<div><p>(from Wikipedia …) I2C (Inter-Integrated Circuit, eye-squared-C), alternatively known as I2C or IIC, is a synchronous, multi-controller/multi-target (master/slave), packet switched, single-ended, serial communication bus invented in 1982 by Philips Semiconductors. It is widely used for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication.</p>
+</div></blockquote>
+<p>For our use it is just another way to access the sensor, because the module has an A/D built into it, I2C is a preferred approach.  We will still use the GPIO pins, but using the I2C interface reassigns them to specific parts of the SBC processor and interface hardware.</p>
+<div class="section" id="interfacing-mlx90614-with-raspberry-pi">
+<h3>Interfacing MLX90614 with Raspberry Pi<a class="headerlink" href="#interfacing-mlx90614-with-raspberry-pi" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="step1-enabling-the-i2c-from-raspberry-pi-setting">
+<h4>Step1: Enabling the I2C from Raspberry Pi setting.<a class="headerlink" href="#step1-enabling-the-i2c-from-raspberry-pi-setting" title="Permalink to this headline">¶</a></h4>
+<p>Type sudo raspi-config and then go to interfacing options.</p>
+<div class="figure align-default" id="select-interface">
+<a class="reference internal image-reference" href="../../_images/select-interface.png"><img alt="../../_images/select-interface.png" src="../../_images/select-interface.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> ncurses terminal. Select Interfaces.</span><a class="headerlink" href="#select-interface" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="select-i2c">
+<a class="reference internal image-reference" href="../../_images/select-i2c.png"><img alt="../../_images/select-i2c.png" src="../../_images/select-i2c.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> ncurses terminal. Select I2C.</span><a class="headerlink" href="#select-i2c" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="select-enable">
+<a class="reference internal image-reference" href="../../_images/select-enable.png"><img alt="../../_images/select-enable.png" src="../../_images/select-enable.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> ncurses terminal. Select Yes.</span><a class="headerlink" href="#select-enable" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="i2c-enabled">
+<a class="reference internal image-reference" href="../../_images/i2c-enabled.png"><img alt="../../_images/i2c-enabled.png" src="../../_images/i2c-enabled.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> ncurses terminal interface. Confirm I2C is active.</span><a class="headerlink" href="#i2c-enabled" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="step2-0-download-the-package-library-of-mlx90614">
+<h4>Step2.0: Download the package/library of MLX90614<a class="headerlink" href="#step2-0-download-the-package-library-of-mlx90614" title="Permalink to this headline">¶</a></h4>
+<p>Navigate to <a class="reference external" href="https://pypi.org/project/PyMLX90614/#files">https://pypi.org/project/PyMLX90614/#files</a>, then <strong>right click and copy</strong> the link address.</p>
+<p>Go to RPI terminal and type <code class="docutils literal notranslate"><span class="pre">wget</span></code> and paste the link copied like below.</p>
+<div class="figure align-default" id="get-libraries">
+<a class="reference internal image-reference" href="../../_images/get-libraries.png"><img alt="../../_images/get-libraries.png" src="../../_images/get-libraries.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Command line <code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://files.pythonhosted.org/packages/67/8a/443af31ff99cca1e30304dba28a60d3f07d247c8d410822411054e170c9c/PyMLX90614-0.0.3.tar.gz</span></code> ready to run</span><a class="headerlink" href="#get-libraries" title="Permalink to this image">¶</a></p>
+</div>
+<p>It will download the library in the zip file name ‘PyMLX90614-0.0.3.tar.gz’.</p>
+<div class="figure align-default" id="lib-dl-complete">
+<a class="reference internal image-reference" href="../../_images/lib-dl-complete.png"><img alt="../../_images/lib-dl-complete.png" src="../../_images/lib-dl-complete.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Library download complete; no errors reported</span><a class="headerlink" href="#lib-dl-complete" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="step2-1-extract-the-library">
+<h4>Step2.1: Extract the library<a class="headerlink" href="#step2-1-extract-the-library" title="Permalink to this headline">¶</a></h4>
+<p>Then extract the folder with the extension of <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xvf</span> <span class="pre">file</span> <span class="pre">name</span></code></p>
+<div class="figure align-default" id="extract-lib">
+<a class="reference internal image-reference" href="../../_images/extract-lib.png"><img alt="../../_images/extract-lib.png" src="../../_images/extract-lib.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Extracting the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file</span><a class="headerlink" href="#extract-lib" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="step-3-0-updating-the-os-to-interact-with-the-library">
+<h4>Step 3.0 Updating the OS to interact with the library<a class="headerlink" href="#step-3-0-updating-the-os-to-interact-with-the-library" title="Permalink to this headline">¶</a></h4>
+<p>Next we will get some tools and install them in the OS distribution (most Blog posts will tell you to update the OS which is the first line below</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>Then execute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span> 
+</pre></div>
+</div>
+<div class="figure align-default" id="python-tools">
+<a class="reference internal image-reference" href="../../_images/python-tools.png"><img alt="../../_images/python-tools.png" src="../../_images/python-tools.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Installing Python-SetUp Tools.</span><a class="headerlink" href="#python-tools" title="Permalink to this image">¶</a></p>
+</div>
+<p>Then execute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">i2c</span><span class="o">-</span><span class="n">tools</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="i2c-tools">
+<a class="reference internal image-reference" href="../../_images/i2c-tools.png"><img alt="../../_images/i2c-tools.png" src="../../_images/i2c-tools.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Installing I2C Tools; here it was already done elsewhere, so we get a warning and no more.</span><a class="headerlink" href="#i2c-tools" title="Permalink to this image">¶</a></p>
+</div>
+<p>Then we run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+<span class="n">sudo</span> <span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>in the extracted library directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I choose to run both default python and python3 so that either interpreter has access to the library.  Most of the scripts in this book assume python3 is what is used.</p>
+</div>
+<p>Now we interface the MLX90614 sensor with Raspberry Pi using the circuit below.</p>
+<div class="figure align-default" id="circuitcity">
+<a class="reference internal image-reference" href="../../_images/CircuitCity.png"><img alt="../../_images/CircuitCity.png" src="../../_images/CircuitCity.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Circuit diagram from Ujjainwala (2020).</span><a class="headerlink" href="#circuitcity" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="prototype">
+<a class="reference internal image-reference" href="../../_images/prototype.png"><img alt="../../_images/prototype.png" src="../../_images/prototype.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Circuit diagram from Ujjainwala (2020).</span><a class="headerlink" href="#prototype" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="sensor-module">
+<a class="reference internal image-reference" href="../../_images/sensor-module.png"><img alt="../../_images/sensor-module.png" src="../../_images/sensor-module.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Circuit diagram from Ujjainwala (2020).</span><a class="headerlink" href="#sensor-module" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="pin-out">
+<a class="reference internal image-reference" href="../../_images/pin-out.png"><img alt="../../_images/pin-out.png" src="../../_images/pin-out.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Circuit diagram from Ujjainwala (2020).</span><a class="headerlink" href="#pin-out" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the connections and the installation is done properly, we can check if we get the sensor address value on the I2C bus using the command i2cdetect -y 1.</p>
+<p>If everything works as expected, we can see the below output on our terminal.</p>
+<p>0x5A represents the address of the sensor as mentioned by the datasheet. The datasheet snippet showing the same is given below.</p>
+<p>Now, we will run make a new file name <a class="reference external" href="http://mlxread.py">mlxread.py</a> and write a sample program to check the data from the sensor. The code for the same is given below.</p>
+<p>Once the file is created, we will run it with python extension python <a class="reference external" href="http://mlxread.py">mlxread.py</a>. The output I received is shown below. I ran the program multiple times to check if the values change as I move my hand over it.</p>
+<p>Woah, we have successfully interfaced MLX90614 with our Raspberry Pi as you can confirm from the above image.</p>
+</div>
+</div>
+</div>
+<div class="section" id="python-scripts-to">
+<h2>Python scripts to<a class="headerlink" href="#python-scripts-to" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smbus2</span> <span class="kn">import</span> <span class="n">SMBus</span>
+<span class="kn">from</span> <span class="nn">mlx90614</span> <span class="kn">import</span> <span class="n">MLX90614</span>
+<span class="n">bus</span> <span class="o">=</span> <span class="n">SMBus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">MLX90614</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x5A</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s2">&quot;Ambient Temperature :&quot;</span><span class="p">,</span> <span class="n">sensor</span><span class="o">.</span><span class="n">get_ambient</span><span class="p">()</span>
+<span class="nb">print</span> <span class="s2">&quot;Object Temperature :&quot;</span><span class="p">,</span> <span class="n">sensor</span><span class="o">.</span><span class="n">get_object_1</span><span class="p">()</span>
+<span class="n">bus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://files.pythonhosted.org/packages/67/8a/443af31ff99cca1e30304dba28a60d3f07d247c8d410822411054e170c9c/PyMLX90614-0.0.3.tar.gz">https://files.pythonhosted.org/packages/67/8a/443af31ff99cca1e30304dba28a60d3f07d247c8d410822411054e170c9c/PyMLX90614-0.0.3.tar.gz</a></p>
+</div>
+<div class="section" id="id2">
+<h2><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.sparkfun.com/datasheets/Sensors/Temperature/MLX90614_rev001.pdf">MLX90614 Datasheet (Melexis LLC)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/I%C2%B2C">I2C interface (Wikipedia)</a></p></li>
+<li><p>Taher Ujjainwala (2020).  <em>IoT Based Contactless Body Temperature Monitoring using Raspberry Pi with Camera and Email Alert</em> <a class="reference external" href="https://circuitdigest.com/microcontroller-projects/iot-based-contactless-body-temperature-monitoring-using-raspberry-pi-with-camera-and-email-alert">https://circuitdigest.com/microcontroller-projects/iot-based-contactless-body-temperature-monitoring-using-raspberry-pi-with-camera-and-email-alert</a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/lesson3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../lesson2/lesson2.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Infrared Motion Detector</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../lesson9/lesson9.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Build and Test Analog-to-Digital Converter</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
