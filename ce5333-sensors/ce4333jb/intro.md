@@ -14,7 +14,7 @@ The links in the active book themselves access potentially other copyrighted mat
 
 ## Syllabus
 
-A working syllabus for ce-4333 is located at [http:/54.243.252.9/ce-5333-sensors-webroot/0-Syllabus/ce5333-Syllabus.html](http:/54.243.252.9/ce-5333-sensors-webroot/0-Syllabus/ce5333-Syllabus.html)
+A working syllabus for ce-4333 is located at [http:/54.243.252.9/ce-5333-sensors-webroot/0-Syllabus/ce5333-Syllabus.html](http:/54.243.252.9/ce5333-sensors-webroot/0-Syllabus/ce5333-Syllabus.html)
 
 :::{note}
 The information below is of use to other potential institutional users of this book.
@@ -22,7 +22,7 @@ The information below is of use to other potential institutional users of this b
 GitHub Repository This entire course (book, labs, and exercises) is contained in a public repository on GitHub https://github.com/dustykat/ce-5333-sensors-webroot
 
 > How to Use
->1. Clone the entire repository to /var/www/html/ce-5333-sensors-webroot. Have your main index point to this directory i.e. `http://your-fqdn-server.org/ce-5333-sensors-webroot/` You can see working example at [http:/54.243.252.9/ce-5333-sensors-webroot/](http:/54.243.252.9/ce-5333-sensors-webroot/)
+>1. Clone the entire repository to /var/www/html/ce-5333-sensors-webroot. Have your main index point to this directory i.e. `http://your-fqdn-server.org/ce-5333-sensors-webroot/` You can see working example at [http:/54.243.252.9/ce-5333-sensors-webroot/](http:/54.243.252.9/ce5333-sensors-webroot/)
 >2. If you plan to modify things, many of the internal links use IP/hostname == `54.243.252.9`, so you will have to change these addresses to your server. A string editor *sed* with global search/replace can usually make the changes seamlessly, but you will need to verify the new links 
 
 - Materials herein come from many sources. Sources in notebooks are at least cited by a URL. As the content is matured, proper citations are to be inserted.
